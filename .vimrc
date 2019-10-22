@@ -108,4 +108,6 @@ set clipboard=unnamed
 " Restart YCMServer
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
+
+" Remove excess whitespace
 :command RW %s/\s\+$//e
