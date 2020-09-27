@@ -111,3 +111,5 @@ let g:ycm_server_log_level = 'debug'
 
 " Remove excess whitespace
 :command RW %s/\s\+$//e
+
+let g:ycm_server_python_interpreter="/usr/local/bin/python"
