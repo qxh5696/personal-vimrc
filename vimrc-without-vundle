@@ -1,0 +1,78 @@
+" This .vimrc file has been made following the url below: 
+" https://realpython.com/vim-and-python-a-match-made-in-heaven/
+" this .vimrc file is in order of the sections on the webpage
+" Might need to cmake the YCMCore, see below: 
+" https://github.com/ycm-core/YouCompleteMe#Installation
+
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+" ...
+
+" All of your Plugins must be added before the following line
+filetype plugin indent on    " required
+
+set splitbelow
+set splitright
+
+" split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+
+" Proper PEP8 indentation
+au BufNewFile, BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" Formatting for other file types
+au BufNewFile, BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+
+" Flag unneccessary white space
+au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" Set encoding to UTF-8
+set encoding=utf-8
+
+" Auto Complete 
+" -- 9/25/2019: Commented out because as of right now YCM is incompatible with 
+"  anaconda's distribution of python 3
+"
+
+" Syntax highlighting
+let python_highlight_all=1
+syntax on
+
+" File tree/file structure
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" Line numbers
+set nu
+
+" Access system keyboard
+set clipboard=unnamed
+
+
+" Remove excess whitespace
+:command RW %s/\s\+$//e
